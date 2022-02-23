@@ -332,4 +332,6 @@ def adduser():
     return str(out.decode()) + str(error.decode())
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    app.run(host=local_ip, port=5000)
